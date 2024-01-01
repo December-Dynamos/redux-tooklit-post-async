@@ -8,6 +8,8 @@ import {useDispatch, useSelector} from 'react-redux';
 const PostApp = () => {
     const {loading, posts, error} = useSelector((state)=>state.post )
 
+    console.log([loading, posts, error])
+
     const dispatch = useDispatch();
 
 

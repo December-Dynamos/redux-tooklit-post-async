@@ -13,6 +13,7 @@ const initialState = {
 export const fetchPosts = createAsyncThunk("post/fetchPosts" , ()=>{
      return axios.get("https://gauravgitacc.github.io/postAppData/posts.json")
         .then((response)=> response.data)
+        
 })
 
 console.log(fetchPosts)
@@ -45,9 +46,10 @@ const postSlice = createSlice({
                   state.error = ''   
         })
         builder.addCase(rejected, (state, action) => {
+                 console.log(action)
                   state.loading = false
                   state.posts = []
-                  state.error = action.payload
+                  state.error = action.error.message
         })
     }
 })
